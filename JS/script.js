@@ -1,11 +1,4 @@
-function solution(str){
-  let out = [];
-  for(let i = str.length-1; i >= 0;i--) {
-    out.push(str[i]);
-  }
-  return out;
+window.onload = pageLoadHandler;
+function pageLoadHandler() {
+  alert("I'm alive!");
 }
-
-let str = ['w', 'o', 'r', 'l', 'd'];
-out = solution(str);
-console.log(out);
