@@ -19,3 +19,27 @@ function reblur(eventObj) {
   name = "../EventHandler/img/" + name + "blur.jpg";
   image.src = name;
 }
+
+/* It's a absolutely different code */
+
+let passangers = [ {name: 'Jane Air', paid: true},
+                  {name: 'Jane Lovely', paid: false},
+                  {name: 'Dr. Evel', paid: true},
+                  {name: 'Jane Main', paid: true},]
+
+function processPassangers(passangers, testFunction) {
+  for(let i = 0; i < passangers.length; i++) {
+    if(testFunction(passangers[i])) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function noFlyList(passangers) {
+  return (passangers.name === 'Dr. Evel');
+}
+
+function checkNoPaid (passangers) {
+  return (!passangers.paid);
+}
