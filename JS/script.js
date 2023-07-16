@@ -43,3 +43,24 @@ function noFlyList(passangers) {
 function checkNoPaid (passangers) {
   return (!passangers.paid);
 }
+let canFly = processPassangers(passangers, noFlyList);
+if(!canFly){
+  console.log('The plane can not take off: we have a passenger on the no-fly-list.');
+}
+let allPay = processPassangers(passangers, checkNoPaid);
+if(!allPay) {
+  console.log('There is a passenger who does not pay!')
+}
+
+function printPassenger(passanger) {
+  let message = passanger.name;
+  if(passanger.paid === true){
+    message = message + " get paid";
+  }else {
+    message = message + " no paid";
+  }
+  console.log(message);
+  return false; //it isn't important
+}
+
+processPassangers(passangers, printPassenger);
