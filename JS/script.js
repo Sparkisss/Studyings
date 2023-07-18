@@ -122,11 +122,26 @@ servePassanger(passangers);
 
 /* It's a absolutely different code yet*/
 
-let numbersArray = [60, 50, 62, 58, 54, 54];
+window.onload = function() {
+  let button = document.getElementById('bake');
+  button.onclick = function() {
+    console.log('Time to bake the cookies');
+    cookies.bake(2500);
+  }
+};
 
-function compareNumbers(num1, num2) {
-  return num2 - num1;
+let cookies = {
+  instructions: 'Preheat oven 350 ...',
+  bake: function(time) {
+    console.log('Baking the cookies.');
+    setTimeout(done, time);
+  }
+};
+
+function done() {
+  alert('Cookies are ready, take them out to cool.');
+  console.log('Cooling the cookies.');
+  setTimeout(function() {
+    alert('Cookies are cool, time to eat!');
+  }, 1000);
 }
-numbersArray.sort(compareNumbers);
-console.log(numbersArray);
-
