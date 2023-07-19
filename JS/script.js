@@ -145,3 +145,27 @@ function done() {
     alert('Cookies are cool, time to eat!');
   }, 1000);
 }
+
+function vaccine(dosage) {
+  if(dosage > 0) {
+    inject(dosage);
+  }
+}
+
+function makePassword(password) {
+  return function guess(passwordGuess) {
+    return (passwordGuess === password);
+  };
+}
+
+let tryGuess = makePassword('secret');
+console.log('Guessing nope: ' + tryGuess('nope'));
+console.log('Guessing secret: ' + tryGuess('secret'));
+
+function setTimer(doneMessage, n) {
+  setTimeout(function() {
+    alert(doneMessage);
+  }, n);
+  doneMessage = 'OUCH';
+}
+setTimer('Cookies are done!', 1000);
