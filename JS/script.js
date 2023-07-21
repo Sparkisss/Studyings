@@ -170,3 +170,127 @@ function setTimer(doneMessage, n) {
 }
 setTimer('Cookies are done!', 1000);
 
+/*                           builder                             */
+function Dog(name, breed, weight) {
+  this.name = name;
+  this.breed = breed;
+  this.weight = weight;
+  this.bark = function() {
+    if(this.weight > 25) {
+      //alert(this.name + ' says Woof!');
+    }else{
+      //alert(this.name + ' says woof!');
+    }
+  }
+};
+let fido = new Dog('Fido', 'Mixed', 38);
+let fluffy = new Dog('Fluffy', 'Poodle', 30);
+let spot = new Dog('Spot', 'Chihuahua', 10);
+let dogs = [fido, fluffy, spot];
+
+for(let i = 0; i < dogs.length; i++) {
+  dogs[i].bark();
+  let size = 'small';
+  if(dogs[i].weight > 10) {
+    size = 'large';
+  }
+  console.log('Dog: ' + dogs[i].name 
+            + ' is a ' + size
+            + ' ' + dogs[i].breed);
+}
+
+function Coffe(roast, ounces) {
+  this.roast = roast;
+  this.ounces = ounces;
+  this.getSize = function() {
+    if(this.ounces === 8) {
+    return 'small';
+    }else if(this.ounces === 12) {
+      return 'medium';
+    }else if (this.ounces === 18){
+      return 'large';
+    } else {
+      return 'desmiss';
+    }
+  };
+  this.getString = function() {
+    return 'You have ordered a ' + this.getSize() 
+          + ' ' + this.roast + ' coffee.';
+  };
+}
+
+let houseBlend = new Coffe('House Blend', 12);
+console.log(houseBlend.getString());
+let darkRoast = new Coffe('Dark Roast', 18);
+console.log(darkRoast.getString());
+
+function Car(params) {
+  this.make = params.make;
+  this.model = params.model;
+  this.year = params.year;
+  this.color = params.color;
+  this.passangers = params.passangers;
+  this.convertible = params.convertible;
+  this.milage = params.milage;
+  this.started = false;
+  this.start = function() {
+    this.started = true;
+  };
+  this.stop = function() {
+    this.started = false;
+  };
+  this.drive = function() {
+    if(this.started) {
+      console.log(this.make + ' ' + this.model + ' goes zoom zoom!');
+    }else {
+      console.log('Start the engine first.');
+    }
+  };
+}
+
+let limoParams = {make:'Webvile motors',
+                  model: 'limo',
+                  year: 1983,
+                  color: 'black',
+                  passangers: 12,
+                  convertible: true,
+                  milage: 21120};
+
+let limo = new Car(limoParams);
+let limoDog = new Dog('Rhapsoby in Blue', 'Poodle', 40);
+
+let cadiParams = {
+  make: 'GM',
+  model: 'Cadilac',
+  year: 1955,
+  color: 'tan',
+  passangers: 5,
+  convertible: false,
+  milage: 12892
+};
+
+
+console.log(limo.make + ' ' + limo.model + ' is a ' + typeof limo);
+console.log(limoDog.name + ' is a ' + typeof limoDog);
+let cadi = new Car(cadiParams);
+
+
+
+/*
+let testcar1 = new Car('Test Car one', 'Air', 2057, 'yellow', 5, false, 21);
+let testcar2 = new Car('Test Car two', 'ir', 2157, 'yellow', 5, false, 91);
+let testcar3 = new Car('Test Car three', 'r', 2257, 'yellow', 5, false, 121);
+let testcar4 = new Car('Test Car four', 'Vr', 2357, 'yellow', 5, false, 221);
+
+let cars = [chevy, testcar1, testcar2, testcar3, testcar4];
+for(let i = 0; i < cars.length; i++) {
+  cars[i].start();
+  cars[i].drive();
+  cars[i].drive();
+  cars[i].stop();
+}
+*/
+cadi.start();
+cadi.drive();
+cadi.drive();
+cadi.stop();
